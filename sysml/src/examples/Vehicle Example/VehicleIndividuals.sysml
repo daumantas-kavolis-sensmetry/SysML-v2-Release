@@ -1,8 +1,8 @@
-package VehicleIndividuals {
-	private import VehicleUsages::*;
+package VehicleIndividualsSysML {
+	private import VehicleUsagesSysML::*;
 	private import Time::DateTime;
 	private import SI::kg;
-	
+
 	package IndividualDefinitions {
 
 		individual part def Vehicle1 :> Vehicle {
@@ -10,25 +10,25 @@ package VehicleIndividuals {
 			/*
 			 * This is an individual Vehicle with a mass of 1800 kg.
 			 */
-			
+
 			attribute redefines mass = 1800 [kg];
 		}
-		
+
 		individual part def Vehicle2 :> Vehicle {
 			doc
 			/*
 			 * This is an individual Vehicle with a mass of 1700 kg.
 			 */
-		
+
 			attribute redefines mass = 1700 [kg];
 		}
-		
+
 		individual part def AxleAssembly1 :> AxleAssembly;
-		
+
 		individual part def Wheel1 :> Wheel;
 		individual part def Wheel2 :> Wheel;
 	}
-	
+
 	package IndividualSnapshots {
 		public import IndividualDefinitions::*;
 		private import Occurrences::HappensJustBefore;
@@ -61,7 +61,7 @@ package VehicleIndividuals {
     		}
 		}	
 	}
-	
+
 	package IndividualConfigurations {
 		public import IndividualSnapshots::*;
 	
