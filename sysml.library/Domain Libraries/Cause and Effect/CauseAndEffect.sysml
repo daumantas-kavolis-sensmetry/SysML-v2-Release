@@ -13,7 +13,7 @@ standard library package CauseAndEffect {
 		 */
 		 
 		ref :>> annotatedElement : SysML::Usage;
-		ref :>> baseType = causes as SysML::Usage;
+		ref :>> baseType = causes meta SysML::Usage;
 	}
 	
 	metadata def <effect> EffectMetadata :> SemanticMetadata {
@@ -24,7 +24,7 @@ standard library package CauseAndEffect {
 		 */
 		 
 		ref :>> annotatedElement : SysML::Usage;
-		ref :>> baseType = effects as SysML::Usage;
+		ref :>> baseType = effects meta SysML::Usage;
 	}
 	
 	metadata def CausationMetadata {
