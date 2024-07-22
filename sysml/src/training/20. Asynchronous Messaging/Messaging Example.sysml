@@ -4,7 +4,7 @@ package 'Messaging Example' {
 	item def Picture;
 	
 	attribute def Show {
-		item picture : Picture;
+		ref item picture : Picture;
 	}
 	
 	action def Focus { in item scene : Scene; out item image : Image; }
