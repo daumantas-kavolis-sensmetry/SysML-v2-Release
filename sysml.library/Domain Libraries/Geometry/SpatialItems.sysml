@@ -91,7 +91,7 @@ standard library package SpatialItems {
 			 * A SpatialItem with componentItems is is a spatial union of them.
 			 */
 		
-			item :>> elements : SpatialItem [1..*] = componentItems;
+			ref item :>> elements : SpatialItem [1..*] = componentItems;
 		}
 		
 		part componentParts : SpatialItem[1..*] :> componentItems, subSpatialParts {
