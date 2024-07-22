@@ -1,4 +1,4 @@
-part def Camera {
+part def 'Camera SysML' {
 	private import PictureTaking::*;
 	
 	perform action takePicture[*] :> PictureTaking::takePicture;
