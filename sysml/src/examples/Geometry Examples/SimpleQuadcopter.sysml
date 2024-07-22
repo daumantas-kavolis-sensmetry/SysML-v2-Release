@@ -48,7 +48,7 @@ package SimpleQuadcopter {
         
         /* Strut shape is CSG difference of rawStrut minus motorCutout */
         attribute :> differencesOf[1] {
-            item :>> elements = (rawStrut, motorCutout);
+            ref item :>> elements = (rawStrut, motorCutout);
         }        
     }
     
@@ -154,7 +154,7 @@ package SimpleQuadcopter {
 
             /* Main body shape is the CSG intersection of rawBody and cuttingCornersBox */
             attribute :> intersectionsOf[1] {
-                item :>> elements = (rawBody, cuttingCornersBox);
+                ref item :>> elements = (rawBody, cuttingCornersBox);
             }
             // Current syntax is not end-user friendly
             // It will be possible to specify following simple CSG expression:
