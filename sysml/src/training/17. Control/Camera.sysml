@@ -1,4 +1,4 @@
-package Camera {
+package 'Camera Example' {
 	private import 'Action Decomposition'::*;
 	
 	part def Camera;
