@@ -1,4 +1,4 @@
-package VehicleDefinitions {
+package VehicleDefinitionsSysML {
 	doc
 	/*
 	 * Example vehicle definitions model.
