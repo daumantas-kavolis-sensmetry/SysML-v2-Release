@@ -1,4 +1,4 @@
-package VehicleUsages {
+package VehicleUsagesSysML {
 	doc
 	/*
 	 * Example usages of elements from the vehicle definitions model.
@@ -8,7 +8,7 @@ package VehicleUsages {
 	private import SI::m;
 	private import ScalarFunctions::*;
 
-	public import VehicleDefinitions::*;
+	public import VehicleDefinitionsSysML::*;
 
 	/* VALUES */	 
 	T1 = 10.0 [N * m];
