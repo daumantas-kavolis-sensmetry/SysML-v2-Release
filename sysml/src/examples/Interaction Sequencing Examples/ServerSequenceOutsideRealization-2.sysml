@@ -72,16 +72,16 @@ package ServerSequenceOutsideRealization_2 {
 		part :>> consumer :> consumer_2;
 
 		flow :>> publish_message: Transfers::MessageTransfer {
- 			end :>> source ::> producer.publicationPort;
- 			end :>> target ::> server.publicationPort;
+ 			end :>> source, Flows::flows::source ::> producer.publicationPort;
+ 			end :>> target, Flows::flows::target ::> server.publicationPort;
  		}
 		flow :>> subscribe_message: Transfers::MessageTransfer {
- 			end :>> source ::> consumer.subscriptionPort;
- 			end :>> target ::> server.subscriptionPort;
+ 			end :>> source, Flows::flows::source ::> consumer.subscriptionPort;
+ 			end :>> target, Flows::flows::target ::> server.subscriptionPort;
  		}
 		flow :>> deliver_message: Transfers::MessageTransfer {
- 			end :>> source ::> server;
- 			end :>> target ::> consumer;
+ 			end :>> source, Flows::flows::source ::> server;
+ 			end :>> target, Flows::flows::target ::> consumer;
  		}
  		
  		/* Binding sent/accept messages to specification model messages. */

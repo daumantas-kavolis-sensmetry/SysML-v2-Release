@@ -116,6 +116,8 @@ standard library package Items {
 			 */
 			 
 			private ref redefines Item::incomingTransferSort, subobjects::incomingTransferSort;
+
+			ref item :>> items::localClock, subobjects::localClock;
 		}
 		
 		abstract part subparts: Part[0..*] :> subitems, parts {
@@ -130,6 +132,8 @@ standard library package Items {
 			/*
 			 * Constraints that have been checked by this Item.
 			 */
+
+			ref :>> ConstraintCheck::this, ownedPerformances::this default that.that;
 		}
 	}
 	
