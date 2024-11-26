@@ -97,14 +97,15 @@ standard library package Flows {
         end occurrence target: Occurrence :>> Flow::target, FlowTransferBefore::target;
     }
     
-    abstract message messages: Message[0..*] nonunique :> transfers, actions {
+    abstract message messages: Message[0..*] nonunique :> transfers, actions, flows {
+        // subsets flows because this has owned end features
         doc
         /*
          * messages is the base feature of all FlowUsages.
          */
     
-        end occurrence source: Occurrence :>> Message::source, transfers::source;
-        end occurrence target: Occurrence :>> Message::target, transfers::target;
+        end occurrence source: Occurrence :>> Message::source, transfers::source, flows::source;
+        end occurrence target: Occurrence :>> Message::target, transfers::target, flows::target;
     }
     
     abstract message flows: Flow[0..*] nonunique :> messages, flowTransfers {

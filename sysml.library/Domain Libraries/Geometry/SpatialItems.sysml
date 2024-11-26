@@ -25,6 +25,8 @@ standard library package SpatialItems {
 		/*
 		 * A SpatialItem is an Item with a three-dimensional spatial extent that also acts as a SpatialFrame of reference.
 		 */
+
+		ref item :>> SpatialFrame::self, Items::Item::self;
 	
 		ref item :>> localClock : Clock[1] default Time::universalClock {
 			doc
