@@ -120,14 +120,15 @@ standard library package Connections {
          */
     }
     
-    abstract message messageConnections: MessageConnection[0..*] nonunique :> binaryConnections, transfers, actions {
+    abstract message messageConnections: MessageConnection[0..*] nonunique :> binaryConnections, transfers, actions, flowConnections {
+        // subsets flowConnections because this has owned end features
         doc
         /*
          * messageConnections is the base feature of all FlowConnectionUsages.
          */
     
-        end occurrence source: Occurrence[0..*] :>> MessageConnection::source, binaryConnections::source, transfers::source;
-        end occurrence target: Occurrence[0..*] :>> MessageConnection::target, binaryConnections::target, transfers::target;
+        end occurrence source: Occurrence[0..*] :>> MessageConnection::source, binaryConnections::source, transfers::source, flowConnections::source;
+        end occurrence target: Occurrence[0..*] :>> MessageConnection::target, binaryConnections::target, transfers::target, flowConnections::target;
     }
     
     abstract message flowConnections: FlowConnection[0..*] nonunique :> messageConnections, flowTransfers {

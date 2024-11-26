@@ -19,8 +19,8 @@ package Packets {
 	}
 	
 	part def 'Thermal Data Packet' :> 'Data Packet' {
-		attribute 'packet data field' redefines Packets::'packet data field'{
-			attribute 'packet secondary header' redefines 'packet header' {
+		attribute 'packet data field' redefines 'Data Packet'::'packet data field'{
+			attribute 'packet secondary header' redefines 'packet secondary header' {
 				attribute 'packet timestamp': DateTime;
 				attribute 'telemetry packet type': String;
 			}

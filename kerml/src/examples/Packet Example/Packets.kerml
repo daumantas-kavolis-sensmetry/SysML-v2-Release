@@ -19,8 +19,8 @@ package Packets {
 	}
 	
 	class 'Thermal Data Packet' specializes 'Data Packet' {
-		feature 'packet data field' redefines Packets::'packet data field'{
-			feature 'packet secondary header' redefines 'packet header' {
+		feature 'packet data field' redefines 'Data Packet'::'packet data field'{
+			feature 'packet secondary header' redefines 'packet secondary header' {
 				feature 'packet timestamp': DateTime;
 				feature 'telemetry packet type': String;
 			}

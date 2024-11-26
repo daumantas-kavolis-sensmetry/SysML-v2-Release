@@ -38,11 +38,20 @@ standard library package Quantities {
 	}
 
 	abstract attribute def VectorQuantityValue :> TensorQuantityValue, NumericalVectorValue {
-		attribute :>> mRef: MeasurementReferences::VectorMeasurementReference;
+		attribute :>> mRef: MeasurementReferences::VectorMeasurementReference {
+			:>> mRef::dimensions, MeasurementReferences::VectorMeasurementReference::dimensions;
+			:>> mRef::isBound, MeasurementReferences::VectorMeasurementReference::isBound;
+			:>> mRef::order, MeasurementReferences::VectorMeasurementReference::order;
+		}
 	}
 
 	abstract attribute def ScalarQuantityValue :> VectorQuantityValue, NumericalValue {
-		attribute :>> mRef: MeasurementReferences::ScalarMeasurementReference;
+		attribute :>> mRef: MeasurementReferences::ScalarMeasurementReference {
+			:>> mRef::dimensions, MeasurementReferences::ScalarMeasurementReference::dimensions;
+			:>> mRef::isBound, MeasurementReferences::ScalarMeasurementReference::isBound;
+			:>> mRef::order, MeasurementReferences::ScalarMeasurementReference::order;
+			:>> mRef::mRefs, MeasurementReferences::ScalarMeasurementReference::mRefs;
+		}
 	}
 	
 	abstract attribute tensorQuantities: TensorQuantityValue[*] nonunique {
