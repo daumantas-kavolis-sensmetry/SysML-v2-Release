@@ -35,6 +35,8 @@ standard library package Objects {
 			/*
 			 * The suboccurrences of this Object that are also Objects.
 			 */
+
+			feature :>> objects::localClock, suboccurrences::localClock;
 		}
 		
 		feature involvingPerformances: Performance[0..*] subsets performances {

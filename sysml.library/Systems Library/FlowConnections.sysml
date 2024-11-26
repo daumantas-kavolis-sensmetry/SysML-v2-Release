@@ -97,14 +97,15 @@ standard library package FlowConnections {
         end occurrence target: Occurrence :>> FlowConnection::target, FlowTransferBefore::target;
     }
     
-    abstract message messageConnections: MessageTransferConnection[0..*] nonunique :> transfers, actions {
+    abstract message messageConnections: MessageTransferConnection[0..*] nonunique :> transfers, actions, flowConnections {
+        // subsets flowConnections because this has owned end features
         doc
         /*
          * messageConnections is the base feature of all FlowConnectionUsages.
          */
     
-        end occurrence source: Occurrence :>> MessageTransferConnection::source, transfers::source;
-        end occurrence target: Occurrence :>> MessageTransferConnection::target, transfers::target;
+        end occurrence source: Occurrence :>> MessageTransferConnection::source, transfers::source, flowConnections::source;
+        end occurrence target: Occurrence :>> MessageTransferConnection::target, transfers::target, flowConnections::target;
     }
     
     abstract message flowConnections: FlowConnection[0..*] nonunique :> messageConnections, flowTransfers {

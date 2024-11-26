@@ -242,7 +242,7 @@ standard library package ShapeItems {
 		attribute :>> semiMajorAxis [1];
 		attribute :>> semiMinorAxis [1];
 
-		item :>> shape : Ellipse [1] {
+		item :>> Shell::shape, PlanarSurface::shape : Ellipse [1] {
 			attribute :>> semiMajorAxis = Disc::semiMajorAxis;
 			attribute :>> semiMinorAxis = Disc::semiMinorAxis;
 		}
@@ -365,8 +365,8 @@ standard library package ShapeItems {
 		attribute rectangleWidth  : LengthValue [1] :> scalarQuantities;
 
 		item :>> revolvedCurve: Rectangle [1] {
-			attribute :>> length = rectangleLength;
-			attribute :>> width  = rectangleWidth;
+			attribute :>> revolvedCurve::length, Rectangle::length = rectangleLength;
+			attribute :>> width  								   = rectangleWidth;
 		}
 	}
 
@@ -670,12 +670,12 @@ standard library package ShapeItems {
 		item :>> tf  : Rectangle;
 		item :>> bf  : Rectangle;
 		item :>> ff : RightTriangle {
-			attribute :>> length = RightTriangularPrism::length;
-			attribute :>> width = RightTriangularPrism::width;
+			attribute :>> ff::length, RightTriangle::length = RightTriangularPrism::length;
+			attribute :>> width 						    = RightTriangularPrism::width;
 		}
 		item :>> rf : RightTriangle {
-			attribute :>> length = ff.length;
-			attribute :>> width = rf.width;
+			attribute :>> rf::length, RightTriangle::length = ff.length;
+			attribute :>> width 							= rf.width;
 		}
 		item :>> slf : Rectangle;
 		item :>> srf : Rectangle;
@@ -748,18 +748,18 @@ standard library package ShapeItems {
 		attribute :>> width [1];
 		attribute :>> height [1];
 	
-		item :>> tf  : Rectangle { attribute :>> length = RectangularCuboid::length;
-								   attribute :>> width	= RectangularCuboid::height; }
-		item :>> bf  : Rectangle { attribute :>> length = RectangularCuboid::length;
-								   attribute :>> width	= RectangularCuboid::height; }
-		item :>> ff  : Rectangle { attribute :>> length = RectangularCuboid::length;
-								   attribute :>> width	= RectangularCuboid::width; }
-		item :>> rf  : Rectangle { attribute :>> length = RectangularCuboid::length;
-								   attribute :>> width	= RectangularCuboid::width; }
-		item :>> slf : Rectangle { attribute :>> length = RectangularCuboid::height;
-								   attribute :>> width	= RectangularCuboid::width; }
-		item :>> srf : Rectangle { attribute :>> length = RectangularCuboid::height;
-								   attribute :>> width	= RectangularCuboid::width; }
+		item :>> tf  : Rectangle { attribute :>> tf::length, Rectangle::length  = RectangularCuboid::length;
+								   attribute :>> width							= RectangularCuboid::height; }
+		item :>> bf  : Rectangle { attribute :>> bf::length, Rectangle::length  = RectangularCuboid::length;
+								   attribute :>> width							= RectangularCuboid::height; }
+		item :>> ff  : Rectangle { attribute :>> ff::length, Rectangle::length  = RectangularCuboid::length;
+								   attribute :>> width							= RectangularCuboid::width; }
+		item :>> rf  : Rectangle { attribute :>> rf::length, Rectangle::length  = RectangularCuboid::length;
+								   attribute :>> width							= RectangularCuboid::width; }
+		item :>> slf : Rectangle { attribute :>> slf::length, Rectangle::length = RectangularCuboid::height;
+								   attribute :>> width							= RectangularCuboid::width; }
+		item :>> srf : Rectangle { attribute :>> srf::length, Rectangle::length = RectangularCuboid::height;
+								   attribute :>> width							= RectangularCuboid::width; }
 	}
 	alias Box for RectangularCuboid;
 
@@ -813,8 +813,8 @@ standard library package ShapeItems {
 		attribute :>> baseWidth [1];
 
 		item :>> base : Triangle {
-			attribute :>> length = Tetrahedron::baseLength;
-			attribute :>> width  = Tetrahedron::baseWidth;
+			attribute :>> Tetrahedron::base::length, Triangle::length = Tetrahedron::baseLength;
+			attribute :>> width 						 			  = Tetrahedron::baseWidth;
 		}
 	}
 
@@ -828,8 +828,8 @@ standard library package ShapeItems {
 		attribute :>> baseWidth [1];
 
 		item :>> base : Rectangle {
-			attribute :>> length = RectangularPyramid::baseLength;
-			attribute :>> width = RectangularPyramid::baseWidth;
+			attribute :>> base::length, Rectangle::length = RectangularPyramid::baseLength;
+			attribute :>> base::width, Rectangle::width   = RectangularPyramid::baseWidth;
 		}
 	}
 }

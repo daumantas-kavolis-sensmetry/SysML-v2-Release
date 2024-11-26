@@ -60,7 +60,7 @@ standard library package Actions {
 			 * The subperformances of this Action that are Actions. 
 			 */
 		
-			ref occurrence :>> this = (that as Action).this {
+			ref occurrence :>> actions::this, subperformances::this = (that as Action).this {
 				doc
 				/*
 				 * The "this" reference of a subaction is always the same as that of
@@ -88,6 +88,8 @@ standard library package Actions {
 			/*
 			 * The subactions of this Action that are TerminateActions.
 			 */
+
+			in occurrence :>> TerminateAction::terminatedOccurrence, terminateActions::terminatedOccurrence;
 		}
 		
 		abstract action controls : ControlAction[0..*] :> subactions {
@@ -139,7 +141,7 @@ standard library package Actions {
 			 */
 		}
 		
-		abstract action assignments : AssignmentAction[0..*] :> subactions, assignmentActions {
+		abstract action assignments [0..*] :> assignmentActions, subactions {
 			doc
 			/*
 			 * The subactions of this Action that are AssignmentActions.
@@ -334,7 +336,15 @@ standard library package Actions {
 		
 		ref receiver :>> triggerTarget;
 
-		action accepter : AcceptMessageAction :>> 'accept';
+		:>> 'accept' {
+			//**
+				hide the other inherited receiver:
+				* either it is ambiguous with AcceptMessageAction::receiver
+				* or inheriting receivers redefine its bound value
+			  */
+			private in _ :>> receiver;
+		}
+		action accepter : AcceptMessageAction :> 'accept';
 		
 		bind receiver = accepter.receiver;
 		bind acceptedMessage = accepter.acceptedMessage;
