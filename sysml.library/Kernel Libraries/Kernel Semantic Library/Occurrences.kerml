@@ -584,7 +584,7 @@ standard library package Occurrences {
 		}
 		inv { isClosed == isEmpty((that as Occurrence).spaceBoundary) }
 
-		feature incomingTransfers: Transfers::Transfer[0..*] subsets Transfers::transfers {
+		feature incomingTransfers[0..*] subsets Transfers::transfers {
 			doc
 			/*
 			 * The incoming transfers received by this occurrence.
@@ -631,7 +631,7 @@ standard library package Occurrences {
 			end feature redefines target = that;
 		}
 
-		feature outgoingTransfers: Transfers::Transfer[0..*] subsets Transfers::transfers {
+		feature outgoingTransfers[0..*] subsets Transfers::transfers {
 			doc
 			/*
 			 * The outgoing transfers sent from this occurrence.

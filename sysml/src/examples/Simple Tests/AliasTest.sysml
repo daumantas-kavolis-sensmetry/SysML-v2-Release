@@ -4,11 +4,11 @@ package AliasTest {
 	
     part def P1 {
         port porig1;
-        alias po1 for porig1;
+        alias po01 for porig1;
     }
 
     part p1 : P1 {
-        port po1 :>> po1;
+        port po1 :>> po01;
     }
 
     part p2 : P1 {

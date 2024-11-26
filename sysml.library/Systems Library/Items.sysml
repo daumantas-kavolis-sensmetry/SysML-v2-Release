@@ -112,6 +112,8 @@ standard library package Items {
 			/*
 			 * The Items that are composite subitems of this Item.
 			 */
+
+			ref item :>> items::localClock, subobjects::localClock;
 		}
 		
 		abstract part subparts: Part[0..*] :> subitems, parts {

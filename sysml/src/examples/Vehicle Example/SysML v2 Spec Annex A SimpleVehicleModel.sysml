@@ -559,7 +559,7 @@ package SimpleVehicleModel{
                     attribute partMasses=(fuelTank.mass,frontAxleAssembly.mass,rearAxleAssembly.mass,engine.mass,transmission.mass,driveshaft.mass);
                     attribute avgFuelEconomy :> distancePerVolume;
                     port fuelCmdPort: FuelCmdPort redefines pwrCmdPort {
-                        in item fuelCmd redefines pwrCmd;
+                        in item fuelCmd redefines fuelCmd, pwrCmd;
                     }
                     port setSpeedPort:~SetSpeedPort;
                     port vehicleToRoadPort redefines vehicleToRoadPort{
