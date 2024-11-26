@@ -623,8 +623,8 @@ standard library package Occurrences {
 			 * The incoming transfers received by this occurrence.
 			 */
 
-			end feature redefines source;
-			end feature redefines target;
+			end feature redefines Transfers::Transfer::source, Transfers::transfers::source;
+			end feature redefines Transfers::Transfer::target, Transfers::transfers::target;
 		}
 		
 		feature isDispatch : Boolean[1] default false {
@@ -670,8 +670,8 @@ standard library package Occurrences {
 			 * The outgoing transfers sent from this occurrence.
 			 */
 
-			end feature redefines source;
-			end feature redefines target;
+			end feature redefines Transfers::Transfer::source, Transfers::transfers::source;
+			end feature redefines Transfers::Transfer::target, Transfers::transfers::target;
 		}
 
 		var feature all outgoingTransfersFromSelf subsets outgoingTransfers {

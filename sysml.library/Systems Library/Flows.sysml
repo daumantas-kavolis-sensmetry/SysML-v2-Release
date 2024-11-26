@@ -95,8 +95,15 @@ standard library package Flows {
         end occurrence source: Occurrence :>> Flow::source, FlowTransferBefore::source;
         end occurrence target: Occurrence :>> Flow::target, FlowTransferBefore::target;
     }
+
+    abstract messageTransfers : Message nonunique :> transfers {
+        // Hacky workaround for messages inheriting ends twice without
+        // implicitly subsetting flows leading to a cycle
+        end occurrence source :>> Message::source, transfers::source;
+        end occurrence target :>> Message::target, transfers::target;
+    }
     
-    abstract message messages: Message[0..*] nonunique :> transfers, actions {
+    abstract message messages :> messageTransfers[0..*] nonunique :> transfers, actions {
         doc
         /*
          * messages is the base feature of all FlowUsages.

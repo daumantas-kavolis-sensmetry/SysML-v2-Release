@@ -53,7 +53,7 @@ standard library package VectorValues {
 		feature :>> dimension = 3;
 	}
 	
-	datatype CartesianThreeVectorValue :> CartesianVectorValue, ThreeVectorValue 
+	datatype CartesianThreeVectorValue :> ThreeVectorValue, CartesianVectorValue 
 		intersects CartesianVectorValue, ThreeVectorValue {
 		doc
 		/*

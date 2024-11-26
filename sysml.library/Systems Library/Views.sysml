@@ -32,6 +32,7 @@ standard library package Views {
 			/*
 			 * Checks that the View satisfies all required ViewpointUsages.
 			 */
+			ref :>> ViewpointCheck::this, checkedConstraints::this default that.that;
 		}
 		
 		satisfy requirement viewpointConformance by that {
@@ -45,7 +46,6 @@ standard library package Views {
 				/*
 				 * The required ViewpointChecks.
 				 */
-                ref :>> ownedPerformances::this, subperformances::this default that.that;
 			}
 		}
 	}

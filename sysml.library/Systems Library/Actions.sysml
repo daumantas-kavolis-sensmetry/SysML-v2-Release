@@ -88,6 +88,8 @@ standard library package Actions {
 			/*
 			 * The subactions of this Action that are TerminateActions.
 			 */
+
+			in occurrence :>> TerminateAction::terminatedOccurrence, terminateActions::terminatedOccurrence;
 		}
 		
 		abstract action controls : ControlAction[0..*] :> subactions {
@@ -139,7 +141,7 @@ standard library package Actions {
 			 */
 		}
 		
-		abstract action assignments : AssignmentAction[0..*] :> subactions, assignmentActions {
+		abstract action assignments [0..*] :> assignmentActions, subactions {
 			doc
 			/*
 			 * The subactions of this Action that are AssignmentActions.
@@ -192,8 +194,8 @@ standard library package Actions {
 		 */
 	
 		in :>> payload [0..*];
-	    ref sentMessage :>> sentTransfer: MessageTransfer, MessageAction {
-	        in :>> MessageTransfer::payload, MessageAction::payload;
+	    ref sentMessage :>> sentTransfer: MessageTransfer, Flows::Message {
+	        in :>> SendPerformance::sentTransfer::payload, Flows::Message::payload;
 	    }
 	}
 	
@@ -342,7 +344,7 @@ standard library package Actions {
 		
 		ref receiver :>> triggerTarget;
 
-		action accepter : AcceptMessageAction :>> 'accept';
+		action accepter : AcceptMessageAction :> 'accept';
 		
 		bind receiver = accepter.receiver;
 		bind acceptedMessage = accepter.acceptedMessage;

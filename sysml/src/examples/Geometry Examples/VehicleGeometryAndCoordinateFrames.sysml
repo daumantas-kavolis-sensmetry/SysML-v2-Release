@@ -34,6 +34,7 @@ package VehicleGeometryAndCoordinateFrames {
 		 * The wheel has 5 lugbolts that are evenly distributed along a circle centered at the wheel's center.
 		 */
 	
+    	ref item :>> SpatialItem::self, Parts::Part::self : Wheel;
         item :>> shape : Cylinder {
             :>> radius = 22/2*25.4 + 110 [mm]; 
             :>> height = 220 [mm];
@@ -80,7 +81,7 @@ package VehicleGeometryAndCoordinateFrames {
             :>> mRefs = (mm, mm, mm);
         }
 
-        part chassis : Chassis[1] :> componentParts {
+        part chassis :> componentItems : Chassis[1] {
 			attribute :>> coordinateFrame {
 				attribute :>> transformation : TranslationRotationSequence {
 	 	          	attribute :>> source = datum;
@@ -94,7 +95,7 @@ package VehicleGeometryAndCoordinateFrames {
         private attribute rearWheelXShift : Real = -1820;
         private attribute wheelYShift : Real = 720;
 
-        part leftFrontWheel : Wheel[1] :> componentParts {
+        part leftFrontWheel :> componentItems : Wheel[1] {
             attribute :>> coordinateFrame {
                 attribute :>> transformation : TranslationRotationSequence {
 	            	attribute :>> source = datum;
@@ -102,7 +103,7 @@ package VehicleGeometryAndCoordinateFrames {
                 }
             }
         }
-        part rightFrontWheel : Wheel[1] :> componentParts {
+        part rightFrontWheel :> componentItems : Wheel[1] {
             attribute :>> coordinateFrame {
                 attribute :>> transformation : TranslationRotationSequence {
                 	attribute :>> source = datum;
@@ -110,7 +111,7 @@ package VehicleGeometryAndCoordinateFrames {
                 }
             }
         }
-        part leftRearWheel : Wheel[1] :> componentParts {
+        part leftRearWheel :> componentItems : Wheel[1] {
             attribute :>> coordinateFrame {
                 attribute :>> transformation : TranslationRotationSequence {
                 	attribute :>> source = datum;
@@ -118,7 +119,7 @@ package VehicleGeometryAndCoordinateFrames {
                 }
             }
         }
-        part rightRearWheel : Wheel[1] :> componentParts {
+        part rightRearWheel :> componentItems : Wheel[1] {
             attribute :>> coordinateFrame {
                 attribute :>> transformation : TranslationRotationSequence {
 					attribute :>> source = datum;
