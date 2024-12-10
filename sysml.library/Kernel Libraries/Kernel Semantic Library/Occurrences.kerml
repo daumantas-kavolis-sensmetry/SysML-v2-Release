@@ -34,7 +34,7 @@ standard library package Occurrences {
         
 		private import SequenceFunctions::*;
 
-		feature portionOfLife: Life[1] subsets portionOf default self;
+		feature portionOfLife: Life[1] subsets portionOf default self as Life;
 
 		feature self: Occurrence[1] redefines Anything::self subsets timeSlices, spaceSlices, spaceTimeCoincidentOccurrences, sameLifeOccurrences;
 		feature sameLifeOccurrences: Occurrence[1..*] subsets things;

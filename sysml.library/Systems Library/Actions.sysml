@@ -192,7 +192,10 @@ standard library package Actions {
 		 */
 	
 		in :>> payload [0..*];
-	    ref sentMessage :>> sentTransfer: MessageTransfer, MessageAction;
+		// Because messages implicitly subsets flows according to the spec,
+		// all messages are implicitly flows as well, making Message
+		// assignment to what should be message invalid
+	    ref sentMessage :>> sentTransfer: MessageTransfer, MessageAction, Flows::Flow;
 	}
 	
 	abstract action sendActions: SendAction[0..*] nonunique :> actions, sendPerformances {
@@ -209,7 +212,10 @@ standard library package Actions {
 		 * of a designated receiver Occurrence, providing its payload as output.
 		 */
 		inout :>> payload;
-		ref acceptedMessage :>> acceptedTransfer: MessageTransfer, MessageAction;
+		// Because messages implicitly subsets flows according to the spec,
+		// all messages are implicitly flows as well, making Message
+		// assignment to what should be message invalid
+		ref acceptedMessage :>> acceptedTransfer: MessageTransfer, MessageAction, Flows::Flow;
 	}
 	
 	action def AcceptAction :> AcceptMessageAction {
