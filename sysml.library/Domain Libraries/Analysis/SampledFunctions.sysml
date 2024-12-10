@@ -51,7 +51,7 @@ standard library package SampledFunctions {
 		 */
 		 
 		in fn : SampledFunction; 
-		return : Anything[0..*] = fn.samples.domainValue;
+		return attribute [0..*] = fn.samples.domainValue;
 	}
 	
 	calc def Range { 
@@ -61,7 +61,7 @@ standard library package SampledFunctions {
 		 */
 			
 		in fn : SampledFunction; 
-		return : Anything[0..*] = fn.samples.rangeValue;
+		return attribute [0..*] = fn.samples.rangeValue;
 	}
 	
 	calc def Sample {
@@ -70,10 +70,10 @@ standard library package SampledFunctions {
 		 * Sample returns a SampledFunction that samples a given calculation over a sequence of domainValues.
 		 */
 		 
-		in calc calculation { in x; }
+		in calc calculation { in attribute x; return attribute : SamplePair; }
 		in attribute domainValues [0..*];
 		return sampling = SampledFunction (
-			samples = domainValues->collect { in x; SamplePair(x, calculation(x)) }
+			samples = domainValues->collect { in attribute x; SamplePair(x, calculation(x)) }
 		);
 	}
 	
@@ -107,7 +107,7 @@ standard library package SampledFunctions {
 			in attribute upperSample : SamplePair;
 			in attribute value;
 			private attribute f = (value - lowerSample.domainValue) / (lowerSample.domainValue - upperSample.domainValue);
-			return result = upperSample.rangeValue + f * (lowerSample.rangeValue - upperSample.rangeValue);				
+			return attribute result = upperSample.rangeValue + f * (lowerSample.rangeValue - upperSample.rangeValue);				
 		}
 		
 		return result [0..1] =

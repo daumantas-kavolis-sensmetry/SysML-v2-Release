@@ -167,9 +167,9 @@ standard library package ShapeItems {
 		attribute :>> xoffset [1];
 
 		item :>> edges [3] = (base, e2, e3);
-		item base [1] { length = Triangle::length; }
-		item e2 [1];
-		item e3 [1];
+		item base [1] : Line, StructuredSpaceObject { :>> length = Triangle::length; }
+		item e2 [1] : Line, StructuredSpaceObject;
+		item e3 [1] : Line, StructuredSpaceObject;
 
 		item :>> vertices [6];
 		item v12  [2] ordered = (vertices#(2), vertices#(3));
@@ -199,10 +199,10 @@ standard library package ShapeItems {
 		 */
 	
 		item :>> edges [4] = (e1, e2, e3, e4);
-		item e1 [1];
-		item e2 [1];
-		item e3 [1];
-		item e4 [1];
+		item e1 : Line, StructuredSpaceObject [1];
+		item e2 : Line, StructuredSpaceObject [1];
+		item e3 : Line, StructuredSpaceObject [1];
+		item e4 : Line, StructuredSpaceObject [1];
 
 		item :>> vertices [8];
 		item v12 [2] ordered = (vertices#(2), vertices#(3));
@@ -231,6 +231,15 @@ standard library package ShapeItems {
 		/*
 		 * Shell is the most general structured Surface.
 		 */
+
+		item :>> faces {
+			item :>> edges;
+			item :>> vertices;
+		}
+		item :>> edges {
+			item :>> vertices;
+		}
+		item :>> vertices;
 	}
 
 	item def Disc :> Shell, PlanarSurface {
@@ -778,7 +787,7 @@ standard library package ShapeItems {
 		item :>> faces;
 		item base [1] :> faces;
 		item wall : Triangle :> faces;
-		attribute wallNumber : Positive = size(wall);
+		attribute wallNumber : Positive = size(wall) as Positive;
 
 		assert constraint { size(faces) == wallNumber + 1 }
 		assert constraint { size(wall) == size(base.edges) }

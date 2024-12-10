@@ -45,10 +45,10 @@ package EnumerationTest {
 		 */
 	}		
 	enum def SizeChoice :> Size {
-		= 60.0;
-		= 70.0;
-		= 80.0;
+		= Size(60.0);
+		= Size(70.0);
+		= Size(80.0);
 	}	
-	enum size: SizeChoice = 60.0;
+	enum size: SizeChoice = Size(60.0);
 	
 }

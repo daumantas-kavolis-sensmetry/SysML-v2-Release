@@ -45,6 +45,7 @@ standard library package Time {
 		 * currentTime equal to the returned timeInstant.
 		 */
 	
+		:>> localClock : Clock;
 		in o : Occurrence[1]; 
 		in clock : Clock[1] default localClock;
 		return timeInstant : TimeInstantValue[1];
@@ -57,6 +58,7 @@ standard library package Time {
 		 * the end snapshot of the Occurrence minus the TimeOf its start snapshot.
 		 */
 	
+		:>> localClock : Clock;
 		in o : Occurrence[1]; 
 		in clock : Clock[1] default localClock;
 		return duration : DurationValue;

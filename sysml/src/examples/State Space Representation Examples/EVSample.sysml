@@ -122,7 +122,7 @@ package EVSample {
     }
 
     analysis def EfficiencyAnalysis :> VehicleAnalysis {
-    	return simulatedEfficiency;
+    	return attribute simulatedEfficiency;
     	
         requirement efficiencyRequirement :>> vehicleRequirement : EfficiencyRequirement;
 
@@ -140,7 +140,7 @@ package EVSample {
     }
 
     analysis def MaxSpeedAnalysis :> VehicleAnalysis {
-    	return simulatedMaxSpeed;
+    	return attribute simulatedMaxSpeed : SpeedValue;
     	
         requirement maxSpeedRequirement :>> vehicleRequirement : MaxSpeedRequirement;
 

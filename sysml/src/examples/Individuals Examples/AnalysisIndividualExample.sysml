@@ -20,7 +20,7 @@ package AnalysisIndividualExample {
 	    
 	    attribute gallon : VolumeUnit = 231.0 * 'in' ** 3;
 	    attribute mpg : DistancePerVolumeUnit = 'mi' / gallon;
-	    attribute hp : PowerUnit = 745.7[SI::W];
+	    attribute hp : PowerValue = 745.7[SI::W];
 	}
 	
 	package VehicleModel {

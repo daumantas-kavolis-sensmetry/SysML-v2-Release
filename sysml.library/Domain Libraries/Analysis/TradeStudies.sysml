@@ -86,7 +86,7 @@ standard library package TradeStudies {
 		 */
 		 
 		subject :>> selectedAlternative;
-		in ref :>> alternatives;
+		in ref :>> alternatives: ScalarValue;
 		in calc :>>fn;
 	
 		out attribute :>> best = alternatives->minimize {
@@ -108,7 +108,7 @@ standard library package TradeStudies {
 		 */
 	
         subject :>> selectedAlternative;
-        in ref :>> alternatives;
+        in ref :>> alternatives : ScalarValue;
         in calc :>>fn;
     
 		out attribute :>> best = alternatives->maximize {

@@ -4,29 +4,29 @@ package 'Turbojet Stage Analysis' {
 	private import ISQ::*;
 	
 	package 'Thermodynamic Functions' {
-	    calc def 'Ideal Gas Law' { in rho; in R_bar; in T;
-	    	return p = rho * R_bar * T;
+	    calc def 'Ideal Gas Law' { in attribute rho; in attribute R_bar; in attribute T;
+	    	return attribute p = rho * R_bar * T;
 	    }
 	    
-	    calc def 'Reversible Adiabatic Compression Density' { in rho_1; in p_1; in p_2; in gamma;
-	    	return rho_2 = rho_1 * (p_2 / p_1)^(1/gamma);
+	    calc def 'Reversible Adiabatic Compression Density' { in attribute rho_1; in attribute p_1; in attribute p_2; in attribute gamma;
+	    	return attribute rho_2 = rho_1 * (p_2 / p_1)^(1/gamma);
 	    }
 	    
-	    calc def 'Reversible Adiabatic Compression Temperature' { in T_1; in p_1; in p_2; in gamma;
-	    	return T_2 = T_1 * (p_2 / p_1)**((gamma - 1) / gamma);
+	    calc def 'Reversible Adiabatic Compression Temperature' { in attribute T_1; in attribute p_1; in attribute p_2; in attribute gamma;
+	    	return attribute T_2 = T_1 * (p_2 / p_1)**((gamma - 1) / gamma);
 	    }
 	    
-	    calc def 'Total Pressure' { in P_static; in rho; in V;
+	    calc def 'Total Pressure' { in attribute P_static; in attribute rho; in attribute V;
 	    	1/2 * rho * V^2 + P_static
 	    }
 	    
 	    // Showing explicit parameter typing
-	    calc def 'Total Temperature' { in T_static : TemperatureValue; in Cp : DimensionOneValue; in V : VolumeValue;
-	    	return : TemperatureValue = 1/(2 * Cp) * V^2 + T_static;
+	    calc def 'Total Temperature' { in attribute T_static : TemperatureValue; in attribute Cp : DimensionOneValue; in attribute V : VolumeValue;
+	    	return attribute : TemperatureValue = 1/(2 * Cp) * V^2 + T_static;
 	    }
 	    
-	    calc def 'Total Enthalpy' { in h_total; in h_static; in V;
-	    	return H_total = 1/2 * V^2 + h_static;
+	    calc def 'Total Enthalpy' { in attribute h_total; in attribute h_static; in attribute V;
+	    	return attribute H_total = 1/2 * V^2 + h_static;
 	    }
 	}
 	
