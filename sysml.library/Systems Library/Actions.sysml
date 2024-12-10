@@ -88,6 +88,8 @@ standard library package Actions {
 			/*
 			 * The subactions of this Action that are TerminateActions.
 			 */
+
+			in occurrence :>> TerminateAction::terminatedOccurrence, terminateActions::terminatedOccurrence;
 		}
 		
 		abstract action controls : ControlAction[0..*] :> subactions {
