@@ -84,6 +84,9 @@ standard library package TradeStudies {
 		 * selectedAlternative have the minimum ObjectiveFunction value of all the
 		 * given alternatives.
 		 */
+
+		subject;
+		in :>> alternatives : ScalarValue;
 		 
 		attribute :>> best = alternatives->minimize {
 			doc
@@ -102,6 +105,9 @@ standard library package TradeStudies {
 		 * selectedAlternative have the maximum ObjectiveFunction value of all the
 		 * given alternatives.
 		 */
+
+		subject;
+		in :>> alternatives : ScalarValue;
 	
 		attribute :>> best = alternatives->maximize {
 			doc

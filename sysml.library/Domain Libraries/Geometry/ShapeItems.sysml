@@ -232,6 +232,15 @@ standard library package ShapeItems {
 		/*
 		 * Shell is the most general structured Surface.
 		 */
+
+		item :>> faces {
+			item :>> edges;
+			item :>> vertices;
+		}
+		item :>> edges {
+			item :>> vertices;
+		}
+		item :>> vertices;
 	}
 
 	item def Disc :> Shell, PlanarSurface {
@@ -844,7 +853,7 @@ standard library package ShapeItems {
             ref :>> Triangle::edges, Polyhedron::faces::edges;
             ref :>> Triangle::vertices, Polyhedron::faces::vertices;            
         }
-		attribute wallNumber : Positive = size(wall);
+		attribute wallNumber : Positive = size(wall) as Positive;
 
 		assert constraint { size(faces) == wallNumber + 1 }
 		assert constraint { size(wall) == size(base.edges) }

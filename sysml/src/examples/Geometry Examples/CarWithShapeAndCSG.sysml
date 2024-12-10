@@ -15,7 +15,9 @@ package CarWithShapeAndCSG {
 		 * Car with simple engine
 		 */
 	
-        item :>> shape = new Cuboid(4800 [mm], 1840 [mm], 1350 [mm]);
+		// The following constructor expression makes absolutely no sense. It is
+		// equivalent to `new Cuboid(faces=4800 [mm], ff=1840 [mm], rf=1350 [mm])`
+        //* item :>> shape = new Cuboid(4800 [mm], 1840 [mm], 1350 [mm]); */
 
         attribute datum :>> coordinateFrame {
             :>> mRefs = (mm, mm, mm);
