@@ -4,6 +4,9 @@ package 'Time Slice and Snapshot Example' {
 	item def Person;
 	
 	part def Vehicle {
+		part start : Vehicle :>> start;
+		part done : Vehicle :>> done;
+
 		timeslice assembly;
 		
 		first assembly then delivery;

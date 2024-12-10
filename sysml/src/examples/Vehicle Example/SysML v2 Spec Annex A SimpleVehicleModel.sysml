@@ -119,7 +119,7 @@ package SimpleVehicleModel{
                 port drivePwrPort:DrivePwrPort;
                 port ignitionCmdPort:IgnitionCmdPort;
                 port flyWheelPort;
-                perform action generateTorque;
+                perform action generateTorque : GenerateTorque;
                 exhibit state engineStates{
                     state off;
                     state starting;
@@ -1133,8 +1133,8 @@ package SimpleVehicleModel{
             }
             @Risk about engineTradeOffAnalysis::vehicle_b_engine4cyl::engine::fuelEfficiency {
                 technicalRisk {
-                    probability = 0.3;
-                    impact = 0.5;
+                    probability = Level(0.3);
+                    impact = Level(0.5);
                 }
             }
             
@@ -1344,9 +1344,9 @@ package SimpleVehicleModel{
                 }
                 subject vehicle:Vehicle;
                 actor environment;
-                actor road;
-                actor driver;
-                actor passenger [0..4];
+                actor road : Road;
+                actor driver : Driver;
+                actor passenger [0..4] : Passenger;
                 include use case getInVehicle_a:>getInVehicle [1..5];
                 include use case getOutOfVehicle_a:>getOutOfVehicle [1..5];
             }

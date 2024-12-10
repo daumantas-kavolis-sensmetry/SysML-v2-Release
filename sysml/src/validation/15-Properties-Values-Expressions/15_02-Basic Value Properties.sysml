@@ -18,7 +18,7 @@ package '15_02-Basic Value Properties' {
     
     part frenchTire: Tire {
     	attribute :>> manufacturer = "Michelin";
-    	attribute :>> hubDiameter = 18.0;
+    	attribute :>> hubDiameter = LengthValue(18.0);
     	attribute :>> width = 245;
     }
     

@@ -10,8 +10,8 @@ package RiskMetadataExample {
         }
         @Risk {
         	totalRisk { 
-        		probability = 0.3;
-        		impact = 0.7;
+        		probability = Level(0.3);
+        		impact = Level(0.7);
         	}        	
         }
     }

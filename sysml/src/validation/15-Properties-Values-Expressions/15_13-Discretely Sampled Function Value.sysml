@@ -29,7 +29,7 @@ package '15_13-Discretely Sampled Function Value' {
 		/*
 		 * Define mission elapsed time scale starting at given UTC date time (in microsecond resolution)
 		 */
-		:>> definitionalEpochInUTC { :>> val = "2020-08-23T22:42:32.924534Z";}		
+		:>> definitionalEpochInUTC { :>> val = Iso8601DateTimeEncoding("2020-08-23T22:42:32.924534Z");}		
 	}
 
 	attribute def MissionElapsedTimeValue :> TimeInstantValue {

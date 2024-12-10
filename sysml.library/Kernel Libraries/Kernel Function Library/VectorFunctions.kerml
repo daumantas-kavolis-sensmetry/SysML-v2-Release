@@ -15,6 +15,7 @@ standard library package VectorFunctions {
 	private import TrigFunctions::arccos;
 	private import SequenceFunctions::size;
 	private import ControlFunctions::*;
+	private import CollectionFunctions::'#';
 	
 	public import VectorValues::*;
 	
@@ -81,7 +82,7 @@ standard library package VectorFunctions {
 	 
 		in components: NumericalValue[1..*] ordered nonunique; 
 		return : NumericalVectorValue[1] {
-			:>> dimension = size(components);
+			:>> dimension = size(components) as Positive;
 			:>> elements = components;
 		}
 	}
@@ -173,7 +174,7 @@ standard library package VectorFunctions {
 	 
 		in components: Real[*] ordered nonunique; 
 		return : CartesianVectorValue[1] {
-			:>> dimension = size(components);
+			:>> dimension = size(components) as Positive;
 			:>> elements = components;
 		}
 	}
@@ -194,7 +195,7 @@ standard library package VectorFunctions {
 		 */
 	}
 	feature cartesian3DZeroVector: CartesianThreeVectorValue[1] =
-		cartesianZeroVector#(3);
+		cartesianZeroVector#(3) as CartesianThreeVectorValue;
 	
 	function isCartesianZeroVector specializes isZeroVector {
 		doc
@@ -213,7 +214,7 @@ standard library package VectorFunctions {
 		return u: CartesianVectorValue[1] =
 			if w == null? v
 			else CartesianVectorOf(
-				(1..w.dimension)->collect{in i : Positive; v#(i) + w#(i)}
+				(1..w.dimension)->collect{in i : Positive; v->'#'(i) + w->'#'(i)}
 			);
 	}
 	
@@ -222,12 +223,9 @@ standard library package VectorFunctions {
 		in w: CartesianVectorValue[0..1];
 		inv precondition { w != null implies v.dimension == w.dimension }
 		return u: CartesianVectorValue[1] =
-			CartesianVectorOf(
-				if w == null? CartesianVectorOf(v.elements->collect{in x : Real; -x})
-				else CartesianVectorOf(
-					(1..v.dimension)->collect{in i : Positive; v#(i) - w#(i)}
-				)
-			);
+			if w == null
+				?    CartesianVectorOf(v.elements->collect { in x : Real; -x })
+				else CartesianVectorOf((1..v.dimension)->collect { in i : Positive; v->'#'(i) - w->'#'(i) });
 	}
 	
 	function cartesianScalarVectorMult specializes scalarVectorMult { 
@@ -260,7 +258,7 @@ standard library package VectorFunctions {
 	function cartesianAngle specializes angle { 
 		in v: CartesianVectorValue[1]; in w: CartesianVectorValue[1];
 		inv precondition { v.dimension == w.dimension }
-		return theta: Real[1] = arccos(cartesianInner(v, w) / (norm(v) * norm(w)));
+		return theta: Real[1] = arccos((cartesianInner(v, w) / (norm(v) * norm(w))) as TrigFunctions::UnitBoundedReal);
 	}
 	
 	function sum { 

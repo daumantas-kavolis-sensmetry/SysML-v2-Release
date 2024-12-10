@@ -8,7 +8,7 @@ package '10a-Analysis' {
 			mass : MassValue;
 		}
 		
-		part vehicle {
+		part vehicle : Vehicle {
 			:>> mass : MassValue = sum((
 				vehicle.engine.mass, 
 				vehicle.transmission.mass, 
