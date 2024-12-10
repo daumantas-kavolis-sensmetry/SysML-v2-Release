@@ -21,7 +21,7 @@ package 'Local Clock Example' {
 			state waiting;
 			accept request : Request via requestPort
 				then responding;
-			accept at Time::Iso8601DateTime(today + "11:59:00")
+			accept at Time::Iso8601DateTime(Time::Iso8601DateTimeEncoding(today + "11:59:00"))
 				then off;
 			
 			state responding;

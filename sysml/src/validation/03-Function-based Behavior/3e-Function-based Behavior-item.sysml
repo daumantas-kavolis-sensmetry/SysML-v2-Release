@@ -40,7 +40,7 @@ package '3e-Function-based Behavior-item' {
 					}
 					in item engine : Engine;
 					
-					out item assembledVehicle : AssembledVehicle = 'vehicle assy without engine' {
+					out item assembledVehicle : AssembledVehicle = AssembledVehicle('vehicle assy without engine') {
 						part engine : Engine = 'assemble engine into vehicle'.engine;
 					}
 				}

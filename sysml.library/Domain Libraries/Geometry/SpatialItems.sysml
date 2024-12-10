@@ -99,7 +99,7 @@ standard library package SpatialItems {
 	
 		in point : Point[1];
 		in timeInstant : TimeInstantValue[1];
-		in enclosingItem :>> 'frame' : SpatialItem[1];
+		in enclosingItem : SpatialItem[1] :>> 'frame';
 		in clock : Clock[1] default enclosingItem.localClock;
 		return positionVector : Position3dVector[1] {
 			attribute :>> mRef = enclosingItem.coordinateFrame;
@@ -114,7 +114,7 @@ standard library package SpatialItems {
 		 */
 	
 		in point : Point[1];
-		in enclosingItem :>> 'frame' : SpatialItem[1];
+		in enclosingItem : SpatialItem[1] :>> 'frame';
 		in clock : Clock[1] default enclosingItem.localClock;
 		return positionVector : Position3dVector[1] {
 			attribute :>> mRef = enclosingItem.coordinateFrame;
@@ -132,7 +132,7 @@ standard library package SpatialItems {
 		in point1 : Point[1];
 		in point2 : Point[1];
 		in timeInstant : TimeInstantValue[1];
-		in spatialItem :>> 'frame' : SpatialItem[1];
+		in spatialItem : SpatialItem[1] :>> 'frame';
 		in clock : Clock[1] default spatialItem.localClock;
 		return displacementVector : Displacement3dVector[1] {
 			attribute :>> mRef = spatialItem.coordinateFrame;
@@ -148,7 +148,7 @@ standard library package SpatialItems {
 	
 		in point1 : Point[1];
 		in point2 : Point[1];
-		in spatialItem :>> 'frame' : SpatialItem[1];
+		in spatialItem : SpatialItem[1] :>> 'frame';
 		in clock : Clock[1] default spatialItem.localClock;
 		return displacementVector : Displacement3dVector[1] {
 			attribute :>> mRef = spatialItem.coordinateFrame;

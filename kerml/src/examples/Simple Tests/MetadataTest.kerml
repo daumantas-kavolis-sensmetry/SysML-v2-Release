@@ -4,9 +4,9 @@ package MetadataTest {
 	library package 'User Defined Extensions' {
 		
 		datatype ClassificationLevel :> ScalarValues::Natural;
-		feature uncl[1] : ClassificationLevel = 0;
-		feature conf[1] : ClassificationLevel = 1;
-		feature secret[1] : ClassificationLevel = 2;
+		feature uncl[1] = ClassificationLevel(0);
+		feature conf[1] = ClassificationLevel(1);
+		feature secret[1] = ClassificationLevel(2);
 		
 		metaclass Classified {
 			feature :>> annotatedElement : KerML::Feature;

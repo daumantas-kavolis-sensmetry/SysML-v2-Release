@@ -14,7 +14,7 @@ package '15_12-Compound Value Type' {
         attribute z: Real[1];
     }
     
-    attribute def LengthValue :> Real;
+    attribute def LengthValue :> Quantities::ScalarQuantityValue;
 
     attribute def TireInfo {
     	attribute manufacturer: String;

@@ -11,6 +11,8 @@ standard library package RiskMetadata {
 		/*
 		 * A Level is a Real number in the interval 0.0 to 1.0, inclusive.
 		 */
+
+		:>> self : Real;
 	
 		assert constraint { that >= 0.0 and that <= 1.0 }
 	}
@@ -21,9 +23,9 @@ standard library package RiskMetadata {
 		 * LevelEnum provides standard probability Levels for low, medium and high risks.
 		 */
 	
-		low = 0.25;
-		medium = 0.50;
-		high = 0.75;
+		low = Level(0.25);
+		medium = Level(0.50);
+		high = Level(0.75);
 	}
 
 	attribute def RiskLevel {
