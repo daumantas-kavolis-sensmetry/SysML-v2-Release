@@ -2,14 +2,16 @@ package TimeVaryingAttribute {
     private import SI::s;
     
     item def PwrCmd {
-        attribute pwrLevel: ScalarValues::Integer;
+        attribute pwrLevel: ScalarValues::Real;
     }
     
     part def Transport2 {
         private import Time::*;
         attribute startTime = TimeOf(start);
         attribute elapseTime :> ISQ::duration;
-        attribute :>> localClock.currentTime = startTime + elapseTime;
+        // `currentTime` requires numerical value, but the right-side is a
+        // time instant otherwise.
+        attribute :>> localClock.currentTime = (startTime + elapseTime).num;
         
         out item pwrCmd:PwrCmd;
         // Lifetime conditions

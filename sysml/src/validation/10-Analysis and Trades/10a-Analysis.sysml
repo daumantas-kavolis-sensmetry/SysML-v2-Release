@@ -8,7 +8,7 @@ package '10a-Analysis' {
 			mass : MassValue;
 		}
 		
-		part vehicle {
+		part vehicle : Vehicle {
 			:>> mass : MassValue = sum((
 				vehicle.engine.mass, 
 				vehicle.transmission.mass, 
@@ -45,7 +45,9 @@ package '10a-Analysis' {
 		analysis def MassAnalysisCase {
 			subject vehicle : Vehicle;
 			objective : MassAnalysisObjective {
-			    subject = MassAnalysisCase::result;
+				// results do not receive implicit redefinitions, therefore this
+				// points to inherited result that is untyped. 
+			    subject = MassAnalysisCase::result as MassValue;
 			}
 			
 			// Result

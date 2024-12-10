@@ -10,7 +10,7 @@ standard library package Interfaces {
     private import Connections::binaryConnections;
     private import Ports::Port;
     
-    private import ScalarValues::Natural;
+    private import ScalarValues::Positive;
     private import SequenceFunctions::size;
     private import SequenceFunctions::excludingAt;
     private import ControlFunctions::selectOne;
@@ -26,7 +26,7 @@ standard library package Interfaces {
         in seq[1..*] nonunique ordered; 
         in value[1] :> seq;
         
-        private attribute position : Natural[1] = (1..size(seq))->selectOne{in i; seq#(i) == value};
+        private attribute position : Positive[1] = (1..size(seq))->selectOne{in i; seq#(i) == value};
         seq->excludingAt(position)
     }
     
