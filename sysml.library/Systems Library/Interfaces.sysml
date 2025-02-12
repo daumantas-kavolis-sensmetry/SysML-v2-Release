@@ -42,7 +42,8 @@ standard library package Interfaces {
          * other Interfaces in which the Port is also participating).
          */
          
-        ref port :>> participant : Port [2..*] nonunique ordered {
+        // implicitly subsets Parts::Part::ownedPorts which is unique
+        ref port :>> participant : Port [2..*] //* nonunique */ ordered {
             doc
             /*
              * The participants of an Interface must be Ports. The interfacingPorts of
@@ -67,7 +68,7 @@ standard library package Interfaces {
          * in which the Port is also participating).
          */
         
-        ref port :>> Interface::participant, BinaryConnection::participant[2] nonunique ordered;
+        ref port :>> Interface::participant, BinaryConnection::participant[2] //* nonunique */ ordered;
      
         end port source: Port :>> BinaryConnection::source; 
         end port target: Port :>> BinaryConnection::target;
