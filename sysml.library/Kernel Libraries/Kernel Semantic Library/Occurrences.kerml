@@ -790,8 +790,8 @@ standard library package Occurrences {
 		 * Occurrence is InsideOf itself and that InsideOf is transitive.
 		 */
 
-		end feature smallerSpace: Occurrence redefines source crosses largerSpace.spaceEnclosedOccurrences;
-		end insideOf [1..*] feature largerSpace: Occurrence redefines target;
+		end feature smallerSpace: Occurrence redefines sourceOccurrence crosses largerSpace.spaceEnclosedOccurrences;
+		end insideOf [1..*] feature largerSpace: Occurrence redefines targetOccurrence;
 	}
 
 	assoc all Within specializes HappensDuring, InsideOf intersects HappensDuring, InsideOf {
