@@ -31,12 +31,14 @@ package '18-Use Case' {
 		first start;
 		
 		then include 'enter vehicle' {
+			subject vehicle;
 			actor :>> driver = 'provide transportation'::driver;
 			actor :>> passengers = 'provide transportation'::passengers;
 		}
 		
 		then use case 'drive vehicle' {
 			include 'add fuel'[0..*] {
+				subject vehicle;
 				doc
 				/*
 				 * Mock-up of an extension point.
@@ -52,6 +54,7 @@ package '18-Use Case' {
 		}
 		
 		then include 'exit vehicle' {
+			subject vehicle;
 			actor :>> driver = 'provide transportation'::driver;
 			actor :>> passengers = 'provide transportation'::passengers;
 		}
