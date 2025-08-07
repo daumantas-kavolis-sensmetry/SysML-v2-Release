@@ -31,7 +31,8 @@ standard library package ControlPerformances {
 			 * successions going out of a decision step.
 			 */
 
-			 end feature redefines earlierOccurrence subsets that;
+			end feature redefines earlierOccurrence subsets that;
+			end feature redefines laterOccurrence;
 		}
 	}
 	
@@ -52,7 +53,8 @@ standard library package ControlPerformances {
 			 * successions coming into a merge step.
 			 */
 
-			 end feature redefines laterOccurrence subsets that;
+			end feature redefines earlierOccurrence;
+			end feature redefines laterOccurrence subsets that;
 		}
 	}
 
