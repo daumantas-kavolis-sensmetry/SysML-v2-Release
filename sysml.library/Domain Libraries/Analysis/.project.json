@@ -4,23 +4,23 @@
   "description": "Standard analysis domain library for the Systems Modeling Language (SysML)",
   "usage": [
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Semantic-Library.kpar",
+      "resource": "urn:kpar:semantic-library",
       "versionConstraint": "1.0.0"
     },
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Data-Type-Library.kpar",
+      "resource": "urn:kpar:data-type-library",
       "versionConstraint": "1.0.0"
     },
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Function-Library.kpar",
+      "resource": "urn:kpar:function-library",
       "versionConstraint": "1.0.0"
     },
     {
-      "resource": "https://www.omg.org/spec/SysML/20250201/Systems-Library.kpar",
+      "resource": "urn:kpar:systems-library",
       "versionConstraint": "2.0.0"
     },
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Quantities-and-Units-Library.kpar",
+      "resource": "urn:kpar:quantities-and-units-library",
       "versionConstraint": "2.0.0"
     }
   ]

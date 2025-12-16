@@ -4,12 +4,12 @@
   "description": "Standard function library for the Kernel Modeling Language (KerML)",
   "usage": [
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Semantic-Library.kpar",
+      "resource": "urn:kpar:semantic-library",
       "versionConstraint": "1.0.0"
     },
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Data-Type-Library.kpar",
+      "resource": "urn:kpar:data-type-library",
       "versionConstraint": "1.0.0"
-    }  
+    }
   ]
 }

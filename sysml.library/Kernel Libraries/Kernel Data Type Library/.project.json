@@ -4,7 +4,7 @@
   "description": "Standard data type library for the Kernel Modeling Language (KerML)",
   "usage": [
     {
-      "resource": "https://www.omg.org/spec/KerML/20250201/Semantic-Library.kpar",
+      "resource": "urn:kpar:semantic-library",
       "versionConstraint": "1.0.0"
     }
   ]
