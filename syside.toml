@@ -1,0 +1,12 @@
+#:schema https://docs.sensmetry.com/schemas/latest/syside.schema.json
+
+std = "sysml.library"
+exclude = [
+  "doc",
+  "install",
+  "sysml.library.xmi",
+  "sysml.library.xmi.implied",
+]
+
+[lsp]
+edit = "all"
