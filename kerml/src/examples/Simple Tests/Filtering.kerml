@@ -41,8 +41,8 @@ package Filtering {
  	private import KerML::*;
 	package Meta {
 		private import DesignModel::*;
-		filter (Element::name == "System" and not Type::isAbstract) or 
-		       Feature::isComposite;
+		filter ((as Element).name == "System" and not (as Type).isAbstract) or 
+		       (as Feature).isComposite;
 		
 		struct Test :> System; 
 		feature :> system;
