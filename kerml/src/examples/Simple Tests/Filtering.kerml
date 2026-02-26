@@ -23,15 +23,15 @@ package Filtering {
 
 	package UpperLevelApprovals {
 	    private import DesignModel::**;
-	    filter Annotations::ApprovalAnnotation::approved and 
-	           Annotations::ApprovalAnnotation::level > 1;
+	    filter (as Annotations::ApprovalAnnotation).approved and 
+	           (as Annotations::ApprovalAnnotation).level > 1;
 	    
 	    struct Test :> System;
 	}
 	
 	package UpperLevelApprovals1 {
 	    private import Annotations::**;
-	    private import DesignModel::**[@Structure][approved and level > 1];
+	    private import DesignModel::**[@Structure][(as ApprovalAnnotation).approved and (as ApprovalAnnotation).level > 1];
 	    
 	    struct Test :> System;	    
 	}
@@ -39,8 +39,8 @@ package Filtering {
  	private import KerML::*;
 	package Meta {
 		private import DesignModel::*;
-		filter (Element::name == "System" and not Type::isAbstract) or 
-		       Feature::isComposite;
+		filter ((as Element).name == "System" and not (as Type).isAbstract) or 
+		       (as Feature).isComposite;
 		
 		struct Test :> System; 
 		feature :> system;
