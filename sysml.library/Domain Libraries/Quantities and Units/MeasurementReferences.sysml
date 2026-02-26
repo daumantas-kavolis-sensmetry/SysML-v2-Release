@@ -312,7 +312,7 @@ standard library package MeasurementReferences {
 		 */
 	
 		attribute unit: MeasurementUnit;
-		attribute exponent: Real;
+		attribute exponent: Rational;
 	}
 
 	abstract attribute def UnitConversion {

@@ -8,6 +8,7 @@ standard library package Quantities {
 	private import ScalarValues::NumericalValue;
 	private import ScalarValues::Number;
 	private import ScalarValues::Real;
+	private import ScalarValues::Rational;
 	private import ScalarValues::Natural;
 	private import ScalarValues::Boolean;
 	private import ScalarValues::String;
@@ -102,7 +103,7 @@ standard library package Quantities {
 		 */
 	
 		attribute quantity: ScalarQuantityValue[1];
-		attribute exponent: Real[1];
+		attribute exponent: Rational[1];
 	}
 
 	attribute def QuantityDimension {
