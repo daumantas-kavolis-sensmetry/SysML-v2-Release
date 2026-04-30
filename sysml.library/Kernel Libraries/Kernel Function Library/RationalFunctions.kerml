@@ -30,7 +30,7 @@ standard library package RationalFunctions {
 
 	function '==' specializes RealFunctions::'==' { in x: Rational[0..1]; in y: Rational[0..1]; return : Boolean[1]; }
 	
-	function gcd{ in x: Rational[1]; in y: Rational[1]; return : Integer[1]; }
+	function gcd{ in x: Rational[1]; in y: Rational[1]; return : Rational[1]; }
 		
 	function floor specializes RealFunctions::floor { in x: Rational[1]; return : Integer[1]; }
 	function round specializes RealFunctions::round { in x: Rational[1]; return : Integer[1]; }

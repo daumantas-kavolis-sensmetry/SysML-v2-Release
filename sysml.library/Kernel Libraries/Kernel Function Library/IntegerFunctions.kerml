@@ -26,7 +26,9 @@ standard library package IntegerFunctions {
 	function min specializes RationalFunctions::min { in x: Integer[1]; in y: Integer[1]; return : Integer[1]; }
 
 	function '==' specializes DataFunctions::'==' { in x: Integer[0..1]; in y: Integer[0..1]; return : Boolean[1]; }
-	
+
+	function gcd specializes RationalFunctions::gcd { in x: Integer[1]; in y: Integer[1]; return : Positive[1]; }
+
 	function '..' specializes ScalarFunctions::'..' { in lower: Integer[1]; in upper: Integer[1]; return : Integer[0..*]; }
 	
 	function ToString specializes RationalFunctions::ToString { in x: Integer[1]; return : String[1]; }
