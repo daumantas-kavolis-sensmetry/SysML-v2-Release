@@ -108,6 +108,9 @@ standard library package Flows {
         /*
          * messages is the base feature of all FlowUsages.
          */
+
+        in event occurrence sourceEvent [1] :>> Message::sourceEvent;
+        in event occurrence targetEvent [1] :>> Message::targetEvent;
     }
     
     abstract flow flows: Flow[0..*] nonunique :> messages, flowTransfers {
