@@ -53,6 +53,7 @@ standard library package SI {
     attribute <bit> bit : StorageCapacityUnit = one;
     attribute <Bq> becquerel : NuclearActivityUnit = s^-1;
     attribute <C> coulomb : ElectricChargeUnit = A*s;
+    attribute <dB> decibel : SoundPressureLevelUnit = one;
     attribute <dec> decade : LogarithmicFrequencyRangeUnit = 0.30102999566398119521 * octave; // log10(2)
     attribute <E> erlang : TrafficIntensityUnit = one;
     attribute <F> farad : CapacitanceUnit = C/V;
