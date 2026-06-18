@@ -245,7 +245,7 @@ standard library package <USCU> USCustomaryUnits {
 		
 		:>> unit = '°F';
 		private attribute temperatureWaterAtFreezingPointInF: DefinitionalQuantityValue {
-			:>> num = 32.0;
+			:>> num = 32;
 			:>> definition = "temperature in degree Fahrenheit of pure water at freezing point";
 		}
 		private attribute fahrenheitToCelsiusScaleMapping: QuantityValueMapping {
