@@ -48,13 +48,12 @@ standard library package SI {
     /*
      * Units with special names
      */
-    attribute <B> byte : StorageCapacityUnit = one;
+    attribute <B> byte : StorageCapacityUnit = 8 * bit;
     attribute <Bd> baud : ModulationRateUnit = s^-1;
     attribute <bit> bit : StorageCapacityUnit = one;
     attribute <Bq> becquerel : NuclearActivityUnit = s^-1;
     attribute <C> coulomb : ElectricChargeUnit = A*s;
-    attribute <dB> decibel : SoundPressureLevelUnit = one;
-    attribute <dec> decade : LogarithmicFrequencyRangeUnit = one;
+    attribute <dec> decade : LogarithmicFrequencyRangeUnit = 0.30102999566398119521 * octave; // log10(2)
     attribute <E> erlang : TrafficIntensityUnit = one;
     attribute <F> farad : CapacitanceUnit = C/V;
     attribute <Gy> gray : AbsorbedDoseUnit = J/kg;
@@ -63,7 +62,7 @@ standard library package SI {
             :>> PermeanceUnit::quantityDimension::quantityPowerFactors, InductanceUnit::quantityDimension::quantityPowerFactors;
         }
     }
-    attribute <Hart> hartley : InformationContentUnit = one;
+    attribute <Hart> hartley : InformationContentUnit = 2.30258509299404568402 * nat; // ln(10)
     attribute <Hz> hertz : FrequencyUnit = s^-1;
     attribute <J> joule : EnergyUnit = N*m;
     //attribute <kat> katal : CatalyticActivityUnit = mol/s;
@@ -71,12 +70,12 @@ standard library package SI {
     attribute <lx> lux : IlluminanceUnit = lm/m^2;
     attribute <N> newton : ForceUnit = kg*m/s^2;
     attribute <nat> 'natural unit of information' : InformationContentUnit = one;
-    attribute <o> octet : StorageCapacityUnit = one;
+    attribute <o> octet : StorageCapacityUnit = 8 * bit;
     attribute <oct> octave : LogarithmicFrequencyRangeUnit = one;
     attribute <Pa> pascal : PressureUnit = N/m^2;
     attribute <rad> radian : AngularMeasureUnit = m/m;
     attribute <S> siemens : ConductanceUnit = 'Ω'^-1;
-    attribute <Sh> shannon : InformationContentUnit = one;
+    attribute <Sh> shannon : InformationContentUnit = 0.69314718055994530942 * nat; // ln(2)
     attribute <sr> steradian : SolidAngularMeasureUnit = m^2/m^2;
     attribute <Sv> sievert : DoseEquivalentUnit = J/kg;
     attribute <T> tesla : MagneticFluxDensityUnit = Wb/m^2;
