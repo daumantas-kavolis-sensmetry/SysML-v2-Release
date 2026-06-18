@@ -487,7 +487,7 @@ standard library package MeasurementReferences {
 	}
 	attribute dimensionOneQuantities : DimensionOneValue[*] nonunique :> scalarQuantities;
 
-	attribute one : DimensionOneUnit[1] = new DimensionOneUnit();
+	attribute <'1'> one : DimensionOneUnit[1] = new DimensionOneUnit();
 
 	attribute def CountValue :> DimensionOneValue {
 		doc
