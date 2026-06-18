@@ -87,6 +87,7 @@ standard library package Time {
 	
         attribute :>> num: Real[1];
         attribute :>> mRef: TimeScale[1];
+		attribute :>> isBound = true;
     }
     attribute timeInstant: TimeInstantValue :> scalarQuantities;
 
