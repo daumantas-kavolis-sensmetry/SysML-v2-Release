@@ -16,8 +16,8 @@ package ConnectionTest {
 		connect p1.x to y;
 		connect p1.x.x1 to y;
 		
-		part a;
-		part b;
+		part a : A;
+		part b : B;
 		
 		bind a = b;
 		binding ab bind a = b;

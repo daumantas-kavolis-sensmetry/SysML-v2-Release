@@ -31,7 +31,7 @@ package RequirementDerivationExample {
 		#derivation connection : Req1_Derivation {
 			end r1 ::> req1;
 			end r1_1 ::> req1_1;
-			end r1_2 ::> req1_1;
+			end r1_2 ::> req1_2;
 		}
 		
 	}
